@@ -13,7 +13,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.4",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "tailwindcss": "^4.1.16",
     "web-vitals": "^2.1.4"
   },
@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -44,7 +45,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@types/jest": "^30.0.0",
-    "@types/testing-library__jest-dom": "^6.0.0"
+    "@types/testing-library__jest-dom": "^6.0.0",
+    "prettier": "^3.6.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
