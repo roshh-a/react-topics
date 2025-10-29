@@ -1,27 +1,27 @@
 export interface HeaderProps {
-    onCartClick: () => void;
+  onCartClick: () => void;
 }
 
 export interface AuthUserType {
-    userName: string;
+  userName: string;
 }
 
 export interface ContextProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 export interface Product {
-    id: number;
-    title: string;
-    price: number;
-    tag: string;
-    tagColorClasses: string;
-    imageSrc: string;
-    imageAlt: string;
+  id: number;
+  title: string;
+  price: number;
+  tag: string;
+  tagColorClasses: string;
+  imageSrc: string;
+  imageAlt: string;
 }
 
 export interface CartContextType {
-    cartItems: Product[];
-    addToCart: (product: Product) => void;
-    removeFromCart: (id: number) => void;
-    totalPrice: number;
+  cartItems: Product[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (id: number) => void;
+  totalPrice: number;
 }
