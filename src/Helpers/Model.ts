@@ -71,6 +71,6 @@ export interface WeatherResponse {
   cod: number;
 }
 export interface Location {
-    lat: number ;
-    lon: number;
+  lat: number;
+  lon: number;
 }
