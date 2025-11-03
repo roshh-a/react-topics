@@ -3,6 +3,7 @@ import { Header } from "./Components/Header";
 import { ItemsList } from "./Pages/ItemsList";
 import { Cart } from "./Pages/Cart";
 import { CartContextProvider } from "./Context/CartContext";
+import { ToastContainer } from "react-toastify";
 
 export const HomeLayout = () => {
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -13,6 +14,7 @@ export const HomeLayout = () => {
 
   return (
     <main>
+      <ToastContainer position="top-right" autoClose={3000} />
       <CartContextProvider>
         <Header onCartClick={toggleCart} />
         {isCartVisible ? <Cart /> : <ItemsList />}
