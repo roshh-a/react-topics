@@ -74,3 +74,15 @@ export interface Location {
   lat: number;
   lon: number;
 }
+
+// Posts
+export interface PostDataProps {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+export interface PostsProps {
+  postData: PostDataProps;
+}

@@ -1,10 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { productData } from "../Constants";
 import { cartContext } from "../Context/CartContext";
-
+import { Axios } from "../Services/ApiService";
 export const ItemsList = () => {
   const cart = useContext(cartContext);
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
 
+  console.log("Stripe session id:", sessionId);
+
+  useEffect(() => {
+    if (!sessionId) return;
+
+    const verifyPayment = async () => {
+      const response = await Axios.post("/api/verify-checkout-session", {
+        sessionId,
+      });
+      if (response.data.status == "paid") {
+        window.alert("Payment verified");
+      } else {
+        window.alert("Payment not completed");
+      }
+    };
+
+    // fetch("/api/verify-checkout-session", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ sessionId }),
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     if (data.status === "paid") {
+    //       window.alert("Payment verified");
+    //     } else {
+    //       window.alert("Payment not completed");
+    //     }
+    //   });
+
+    verifyPayment();
+  }, [sessionId]);
   const handleAddToCart = (productId: number) => {
     const selectedProduct = productData.find(
       (products) => products.id === productId,

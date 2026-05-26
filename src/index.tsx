@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactDOM from "react-dom/client";
-import "./style.css";
+import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContextProvider } from "./Context/ToastContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 
+const queryClient = new QueryClient();
+
 root.render(
   <React.StrictMode>
     <ToastContextProvider>
-      <App></App>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </ToastContextProvider>
   </React.StrictMode>,
 );
